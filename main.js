@@ -13,6 +13,13 @@
 
 
 
+(function(){
+	'use strict';
+
+})();
+
+
+
  
 
  /******************************************************************************* *
@@ -142,6 +149,70 @@ for (var row = 0; row < donutBox.length; row++) {
   - string vazia " "
   -valor ímpar NaN (significa "not a number", verifique o artigo MDN NaN)
   */
+
+
+(function () {	
+	'use strict';
+
+	// FUNÇÃO FAZ A SOMA DO ARRAY PASSADO
+	const somarValores = function(array){
+		let total = 0;
+		for (let value of array) {
+			total += value;
+		}
+		return total;
+	}
+	
+	//FUNÇÃO CALCULA A MÉDIA DOS VALORES PASSADOS
+	const fazMedia = function(valores){
+		let baseMedia = valores.length;
+		let mediaFinal = 0;
+		let resultSoma = 0;
+		
+		resultSoma = somarValores(valores);				
+		mediaFinal = resultSoma / baseMedia;
+		
+		return mediaFinal;
+	}
+	
+	console.log(fazMedia([4,0,10,10]))
+	// 6
+})();
+
+
+(function(){
+	'use strict';
+	
+	const calcularIMC = function(peso, altura, callback){
+		let alturaQuadrada =  Math.pow(altura, 2);
+		let res =  peso / alturaQuadrada;
+
+		if(callback && typeof callback === 'function'){
+			return callback(res);
+		}
+		
+	}
+	const classificaIMC = function(imc){
+		if (imc < 16) {
+			console.log(imc + " menor que 16 extremamente abaixo do peso")
+		} else if (imc <= 16.9) {
+			console.log(imc + " 16 a 16,9 muito abaixo do peso")
+		} else if(imc <= 18.4) {
+			console.log( imc, " 17 a 18.4 abaixo do peso")
+		}else if (imc <= 24.9) {
+			console.log(imc, " 18.5 a 24.9 peso normal")
+		}else{
+			console.log(imc + " acima do peso")
+		}
+  }
+	var testeMyFunc = calcularIMC(65, 1.75, classificaIMC);
+  console.log(testeMyFunc);
+
+})();
+
+
+
+
 
 
 /*************************************************************************
